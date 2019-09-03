@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:HamishWadsworthCV.Views"
+       x:Class="HamishWadsworthCV.AppShell"
+       BackgroundColor="#003A73"
+       ForegroundColor="#E6EBF2">
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <StackLayout BackgroundColor="#E6EBF2"
+                         Margin="0"
+                         Padding="0, 20">
+                <Image Aspect="AspectFit"
+                       AnchorX="0"
+                       AnchorY="0"
+                       Source="profile_img.png"
+                       HeightRequest="250" />
+                <Label Text="{Binding Name}"
+                       TextColor="#003A73"
+                       FontSize="22"
+                       FontFamily="{StaticResource LemonMilkFontFamily}"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Start"
+                       Margin="0,0,0,10" />
+                <Label Text="{Binding Email}"
+                       TextColor="{StaticResource BodyTextColor}"
+                       FontSize="16"
+                       FontFamily="{StaticResource AleoLightFontFamily}"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Start"
+                       Margin="0,0,0,50" />
+            </StackLayout>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
+    <!-- Template for buttons/links below -->
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid BackgroundColor="#E6EBF2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*" />
+                    <ColumnDefinition Width="0.8*" />
+                </Grid.ColumnDefinitions>
+
+                <Image Source="{Binding Icon}"
+                       Margin="10"
+                       HeightRequest="75"
+                       Aspect="AspectFit" />
+                <Label Grid.Column="1"
+                       Text="{Binding Title}"
+                       FontSize="{StaticResource MenuHeadingFontSize}"
+                       FontFamily="{StaticResource AleoLightFontFamily}"
+                       TextColor="#003A73"
+                       VerticalTextAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    <!-- Actual flyout buttons/links -->
+    <FlyoutItem Title="Profile"
+                Icon="profile_96_blue.png">
+        <Tab>
+            <ShellContent>
+                <views:ProfilePage />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="Work History"
+                Icon="worker_100_blue.png">
+        <Tab>
+            <ShellContent>
+                <views:WorkHistoryPage />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="Projects"
+                Icon="projects_100_blue.png">
+        <Tab>
+            <ShellContent>
+                <views:ProjectsPage />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="Contact Me"
+                Icon="envelope_100_blue.png">
+        <Tab>
+            <ShellContent>
+                <views:ContactPage />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+
+</Shell>

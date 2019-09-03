@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:HamishWadsworthCV.Extensions"
+    x:Class="HamishWadsworthCV.Views.ProfilePage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ProfilePageButton"
+                   TargetType="Button">
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource ButtonBackgroundColor}" />
+                <Setter Property="BorderRadius"
+                        Value="12" />
+                <Setter Property="TextColor"
+                        Value="{StaticResource ButtonTextColor}" />
+                <Setter Property="FontFamily"
+                        Value="{StaticResource AleoBoldFontFamily}" />
+                <Setter Property="FontAttributes"
+                        Value="Bold" />
+                <Setter Property="FontSize"
+                        Value="{StaticResource ButtonFontSize}" />
+                <Setter Property="BorderWidth"
+                        Value="1" />
+                <Setter Property="BorderColor"
+                        Value="{StaticResource HighlightColor}" />
+                <Setter Property="HorizontalOptions"
+                        Value="FillAndExpand" />
+                <Setter Property="Padding"
+                        Value="0,10" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="0,40,0,0"
+                    Android="0,0,0,0">
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ScrollView>
+        <StackLayout>
+            <Image Source="profile_img.png"
+                   Aspect="AspectFill" />
+            <Label Text="{Binding Name}"
+                   HorizontalOptions="Center"
+                   Margin="0,40,0,25"
+                   Style="{StaticResource MainHeadingLabel}" />
+            <Label HorizontalOptions="Center"
+                   FormattedText="This app aims to showcase my potential as a future employee in the IT industry. If you like what you see, get in touch!"
+                   HorizontalTextAlignment="Center"
+                   Margin="40,0"
+                   LineHeight="1.4"
+                   Style="{StaticResource SubHeadingLabel}"
+                   FontSize="18"></Label>
+
+            <!--TODO - Add drop-shadow -->
+            <Grid Margin="30,30,30,35"
+                  RowSpacing="18">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="60" />
+                </Grid.RowDefinitions>
+                <Button Grid.Row="0"
+                        HorizontalOptions="Fill"
+                        ImageSource="worker_100_red"
+                        Text="Work History"
+                        Style="{StaticResource ProfilePageButton}"
+                        Clicked="Handle_WorkHistoryBtnClicked" />
+
+                <Button Grid.Row="1"
+                        HorizontalOptions="Fill"
+                        ImageSource="projects_100_red"
+                        Text="Projects"
+                        Style="{StaticResource ProfilePageButton}"
+                        Clicked="Handle_ProjectsBtnClicked" />
+
+            </Grid>
+
+            <AbsoluteLayout>
+                <local:BottomBtnBar AbsoluteLayout.LayoutBounds="0,1,1,1"
+                                    AbsoluteLayout.LayoutFlags="All" />
+            </AbsoluteLayout>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
+
+

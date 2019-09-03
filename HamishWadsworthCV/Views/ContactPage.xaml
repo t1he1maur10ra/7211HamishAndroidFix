@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:HamishWadsworthCV.Extensions"
+    x:Class="HamishWadsworthCV.Views.ContactPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- Colors -->
+            <Color x:Key="FormBackgroundColor">#003A73</Color>
+            <Color x:Key="FormTextColor">#E6EBF2</Color>
+            <Color x:Key="FormButtonBackgroundColor">#F61067</Color>
+            <Color x:Key="FormButtonTextColor">#E6EBF2</Color>
+
+            <!-- Font sizes -->
+            <x:Double x:Key="FormFontSize">18</x:Double>
+            <x:Double x:Key="ButtonFontSize">24</x:Double>
+
+            <!-- Styles -->
+            <Style x:Key="FormInputEntryFields"
+                   TargetType="Entry">
+                <Setter Property="TextColor"
+                        Value="{StaticResource FormTextColor}" />
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource FormBackgroundColor}" />
+                <Setter Property="FontFamily"
+                        Value="{StaticResource AleoLightFontFamily}" />
+                <Setter Property="FontSize"
+                        Value="{StaticResource FormFontSize}" />
+            </Style>
+
+            <Style x:Key="FormInputEditorFields"
+                   TargetType="Editor">
+                <Setter Property="TextColor"
+                        Value="{StaticResource FormTextColor}" />
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource FormBackgroundColor}" />
+                <Setter Property="FontFamily"
+                        Value="{StaticResource AleoLightFontFamily}" />
+                <Setter Property="FontSize"
+                        Value="{StaticResource FormFontSize}" />
+            </Style>
+
+            <Style x:Key="FormButton"
+                   TargetType="Button">
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource FormButtonBackgroundColor}" />
+                <Setter Property="TextColor"
+                        Value="{StaticResource FormButtonTextColor}" />
+                <Setter Property="HeightRequest"
+                        Value="52" />
+                <Setter Property="BorderRadius"
+                        Value="12" />
+                <Setter Property="FontFamily"
+                        Value="{StaticResource AleoBoldFontFamily}" />
+                <Setter Property="FontAttributes"
+                        Value="Bold" />
+                <Setter Property="FontSize"
+                        Value="{StaticResource ButtonFontSize}" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="0,40,0,0"
+                    Android="0,0,0,0">
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ScrollView>
+
+        <StackLayout Padding="0">
+            <Label Text="Get In Touch"
+                   Margin="40,40"
+                   Style="{StaticResource MainHeadingLabel}" />
+
+            <Label Margin="40,0,40,40"
+                   Text="Feel free to contact me, I'd love to hear from you!"
+                   HorizontalTextAlignment="Center"
+                   Style="{StaticResource SubHeadingLabel}">
+            </Label>
+
+            <!--Name-->
+            <Grid Margin="40,0,40,10">
+                <BoxView Color="{StaticResource FormBackgroundColor}"
+                         CornerRadius="10"
+                         HeightRequest="40" />
+                <Entry Style="{StaticResource FormInputEntryFields}"
+                       x:Name="Name"
+                       Placeholder="Your Name"
+                       BackgroundColor="Transparent"
+                       Margin="5"
+                       TextChanged="OnNameChanged"
+                       Keyboard="Text" />
+            </Grid>
+
+            <!-- Error message -->
+            <Label x:Name="NameError"
+                   FontSize="Micro"
+                   FontFamily="{StaticResource AleoLightFontFamily}"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Start" />
+
+
+            <!--Phone number-->
+            <Grid Margin="40,0,40,10">
+                <BoxView Color="{StaticResource FormBackgroundColor}"
+                         CornerRadius="10"
+                         HeightRequest="40" />
+                <Entry Style="{StaticResource FormInputEntryFields}"
+                       x:Name="PhoneNumber"
+                       Placeholder="Your Number"
+                       BackgroundColor="Transparent"
+                       Margin="5"
+                       TextChanged="OnPhoneNumberChanged"
+                       Keyboard="Text" />
+            </Grid>
+
+            <!-- Error message -->
+            <Label x:Name="PhoneNumError"
+                   FontSize="Micro"
+                   FontFamily="{StaticResource AleoLightFontFamily}"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Start" />
+
+            <!--Email-->
+            <Grid Margin="40,0,40,10">
+                <BoxView Color="{StaticResource FormBackgroundColor}"
+                         CornerRadius="10"
+                         HeightRequest="40" />
+                <Entry Style="{StaticResource FormInputEntryFields}"
+                       x:Name="EmailAddress"
+                       Placeholder="Your Email"
+                       BackgroundColor="Transparent"
+                       Margin="5"
+                       TextChanged="OnEmailChanged"
+                       Keyboard="Text" />
+            </Grid>
+            <!-- Error message -->
+            <Label x:Name="EmailError"
+                   FontSize="Micro"
+                   FontFamily="{StaticResource AleoLightFontFamily}"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Start" />
+
+            <!--Message-->
+            <Grid Margin="40,0,40,10">
+                <BoxView Color="{StaticResource FormBackgroundColor}"
+                         CornerRadius="10"
+                         HeightRequest="200" />
+                <Editor Placeholder="Your Message"
+                        Style="{StaticResource FormInputEditorFields}"
+                        x:Name="Message"
+                        BackgroundColor="Transparent"
+                        Margin="5"
+                        VerticalOptions="FillAndExpand"
+                        HeightRequest="200"
+                        TextChanged="OnMessageChanged"
+                        Keyboard="Text" />
+            </Grid>
+            <!-- Error message -->
+            <Label x:Name="MessageError"
+                   FontSize="Micro"
+                   FontFamily="{StaticResource AleoLightFontFamily}"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Start" />
+
+
+
+            <StackLayout HeightRequest="150">
+                <Button Text="Submit"
+                        Style="{StaticResource FormButton}"
+                        Margin="40,0,40,20"
+                        Clicked="Handle_SubmitClicked" />
+
+                <Grid x:Name="validation_message"
+                      Padding="100,10"
+                      Margin="0,0,0,20"
+                      IsVisible="false">
+                    <BoxView BackgroundColor="#003A73"
+                             Opacity=".5"
+                             CornerRadius="15">
+                    </BoxView>
+                    <Label x:Name="Info_Message"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           TextColor="#E6EBF2"
+                           HorizontalTextAlignment="Center"
+                           FontFamily="{StaticResource AleoLightFontFamily}"
+                           FontSize="Small" />
+                </Grid>
+            </StackLayout>
+
+            <local:BottomBtnBar />
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

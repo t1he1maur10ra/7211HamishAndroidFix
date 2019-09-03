@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HamishWadsworthCV.App">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <!-- Colors -->
+            <Color x:Key="AppBackgroundColor">#E6EBF2</Color>
+            <Color x:Key="iOSNavigationBarColor">#E6EBF2</Color>
+            <Color x:Key="AndroidNavigationBarColor">#2196F3</Color>
+            <Color x:Key="iOSNavigationBarTextColor">#2D3F56</Color>
+            <Color x:Key="AndroidNavigationBarTextColor">#E6EBF2</Color>
+
+            <Color x:Key="HeaderTextColor">#003A73</Color>
+            <Color x:Key="BodyTextColor">#2D3F56</Color>
+            <Color x:Key="ButtonBackgroundColor">#F3F5F9</Color>
+            <Color x:Key="ButtonTextColor">#F61067</Color>
+            <Color x:Key="BackgroundColor">#E6EBF2</Color>
+            <Color x:Key="HighlightColor">#F61067</Color>
+
+            <!-- Nav & Content page settings -->
+            <Style TargetType="{x:Type NavigationPage}">
+                <Setter Property="BarBackgroundColor"
+                        Value="{OnPlatform iOS={StaticResource iOSNavigationBarColor},
+                                       Android={StaticResource AndroidNavigationBarColor}}" />
+                <Setter Property="BarTextColor"
+                        Value="{OnPlatform iOS={StaticResource iOSNavigationBarTextColor},
+                                       Android={StaticResource AndroidNavigationBarTextColor}}" />
+            </Style>
+
+            <Style TargetType="{x:Type ContentPage}"
+                   ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource AppBackgroundColor}" />
+            </Style>
+
+            <!-- Font families -->
+            <OnPlatform x:Key="AleoBoldFontFamily"
+                        x:TypeArguments="x:String">
+                <On Platform="iOS">Aleo</On>
+                <On Platform="Android">Aleo_700.ttf#Aleo</On>
+            </OnPlatform>
+
+            <OnPlatform x:Key="AleoLightFontFamily"
+                        x:TypeArguments="x:String">
+                <On Platform="iOS">Aleo</On>
+                <On Platform="Android">Aleo_300.ttf#Aleo</On>
+            </OnPlatform>
+
+            <OnPlatform x:Key="LemonMilkFontFamily"
+                        x:TypeArguments="x:String">
+                <On Platform="iOS">LemonMilk</On>
+                <On Platform="Android">LemonMilk.ttf#Lemon/Milk</On>
+            </OnPlatform>
+
+            <!-- Font sizes -->
+            <x:Double x:Key="MainHeadingFontSize">30</x:Double>
+            <x:Double x:Key="SubHeadingFontSize">20</x:Double>
+            <x:Double x:Key="JobDescrTitleFontSize">18</x:Double>
+            <x:Double x:Key="JobDescrLocationFontSize">14</x:Double>
+            <x:Double x:Key="JobDescrBodyFontSize">12</x:Double>
+            <x:Double x:Key="FormFontSize">18</x:Double>
+            <x:Double x:Key="ButtonFontSize">24</x:Double>
+            <x:Double x:Key="MenuHeadingFontSize">22</x:Double>
+
+            <!-- Styles -->
+            <Style x:Key="MainHeadingLabel"
+                   TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="{StaticResource HeaderTextColor}" />
+                <Setter Property="FontFamily"
+                        Value="{StaticResource LemonMilkFontFamily}" />
+                <Setter Property="FontSize"
+                        Value="{StaticResource MainHeadingFontSize}" />
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Center" />
+            </Style>
+
+            <!--TODO - increase linespacing to double-->
+            <Style x:Key="SubHeadingLabel"
+                   TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="{StaticResource BodyTextColor}" />
+                <Setter Property="FontFamily"
+                        Value="{StaticResource AleoLightFontFamily}" />
+                <Setter Property="FontSize"
+                        Value="{StaticResource SubHeadingFontSize}" />
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Center" />
+            </Style>
+
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>

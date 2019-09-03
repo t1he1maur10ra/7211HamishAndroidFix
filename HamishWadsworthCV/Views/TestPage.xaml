@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HamishWadsworthCV.Extensions"
+             x:Class="HamishWadsworthCV.Views.TestPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- STYLES -->
+            <Style x:Key="JebDescrTitleLabel"
+                   TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="{StaticResource BodyTextColor}" />
+                <Setter Property="FontFamily"
+                        Value="{StaticResource AleoBoldFontFamily}" />
+                <Setter Property="FontSize"
+                        Value="{StaticResource JobDescrTitleFontSize}" />
+                <Setter Property="FontAttributes"
+                        Value="Bold" />
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Start" />
+            </Style>
+
+            <Style x:Key="JebDescrLocationLabel"
+                   TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="{StaticResource BodyTextColor}" />
+                <Setter Property="FontFamily"
+                        Value="{StaticResource AleoBoldFontFamily}" />
+                <Setter Property="FontSize"
+                        Value="{StaticResource JobDescrLocationFontSize}" />
+                <Setter Property="FontAttributes"
+                        Value="Bold" />
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Start" />
+            </Style>
+
+            <Style x:Key="JebDescrBodyLabel"
+                   TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="{StaticResource BodyTextColor}" />
+                <Setter Property="FontFamily"
+                        Value="{StaticResource AleoLightFontFamily}" />
+                <Setter Property="FontSize"
+                        Value="{StaticResource JobDescrBodyFontSize}" />
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Start" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="0,40,0,0"
+                    Android="0,0,0,0">
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ScrollView>
+        <StackLayout>
+            <Label Text="WORK HISTORY"
+                   Style="{StaticResource MainHeadingLabel}"
+                   Margin="40,40" />
+
+            <Label Text="Experience gained, places I've worked and significant things I've been a part of."
+                   Style="{StaticResource SubHeadingLabel}"
+                   Margin="40,0,40,40" />
+
+            <RelativeLayout>
+                <!--Vertical timeline bar-->
+                <BoxView x:Name="TimelineBar"
+                         Color="yellow"
+                         HorizontalOptions="Center"
+                         RelativeLayout.WidthConstraint="{ConstraintExpression
+            Type=RelativeToView,
+            ElementName=photo,
+            Property=Width,
+            Factor=.2,Constant=0}"
+                         RelativeLayout.HeightConstraint="{ConstraintExpression
+            Type=RelativeToView,
+            ElementName=photo,
+            Property=Height,
+            Factor=5,Constant=0}"
+                         RelativeLayout.XConstraint="{ConstraintExpression
+            Type=RelativeToView,
+            ElementName=photo,
+            Property=Width,
+            Factor=0.4,Constant=0}"
+                         RelativeLayout.YConstraint="{ConstraintExpression
+            Type=RelativeToView,
+            ElementName=photo,
+            Property=Width,
+            Factor=0.9,Constant=0}" />
+
+                <BoxView />
+
+                <Image Source="hamish_bike"
+                       x:Name="photo"
+                       HeightRequest="100"
+                       WidthRequest="100" />
+
+
+
+
+                <StackLayout Padding="5,30,5,0"
+                             RelativeLayout.XConstraint="{ConstraintExpression
+            Type=RelativeToView,
+            ElementName=photo,
+            Property=Width,
+            Factor=1,Constant=0}"
+                             RelativeLayout.WidthConstraint="{ConstraintExpression
+            Type=RelativeToParent,
+            Property=Width,
+            Factor=.75} ">
+
+                    <!--Graduate Diploma label-->
+                    <Label Text="Graduate Diploma (Applied IT)"
+                           Margin="0,0,0,10"
+                           Style="{StaticResource JebDescrTitleLabel}" />
+
+
+                    <!--Toi Ohomai Label-->
+                    <Label Text="TOI OHOMAI"
+                           Style="{StaticResource JebDescrLocationLabel}" />
+
+                    <!--Job description-->
+                    <Label Margin="0,20,0,30"
+                           Text="A one year course learning web and mobile development skills, ready to take to industry in the near future."
+                           Style="{StaticResource JebDescrBodyLabel}"
+                           FontSize="Body" />
+
+
+                    <!--Deputy Principal label-->
+                    <Label Text="Deputy Principal"
+                           x:Name="jobtitle2"
+                           Margin="0,20,0,10"
+                           Style="{StaticResource JebDescrTitleLabel}" />
+
+
+                    <!--Te Puna Label-->
+                    <Label Text="TE PUNA SCHOOL"
+                           Style="{StaticResource JebDescrLocationLabel}" />
+
+                    <!--Job description-->
+                    <Label Margin="0,20,0,30"
+                           Text="I spent 10 years working as part of the management team, responsible for all aspects of curriculum development and implementation."
+                           Style="{StaticResource JebDescrBodyLabel}"
+                           FontSize="Body" />
+
+                </StackLayout>
+
+
+
+            </RelativeLayout>
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

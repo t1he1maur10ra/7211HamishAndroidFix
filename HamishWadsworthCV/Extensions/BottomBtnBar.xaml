@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms"
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      x:Class="HamishWadsworthCV.Extensions.BottomBtnBar">
+
+
+    <Grid BackgroundColor="#F61067"
+          VerticalOptions="End"
+          HeightRequest="130"
+          AbsoluteLayout.LayoutBounds="0,1,1,1"
+          AbsoluteLayout.LayoutFlags="All">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <ImageButton Source="linkedin_blue_circle"
+                     Padding="20"
+                     Clicked="Handle_LinkedinClicked"
+                     Grid.Column="0" />
+        <ImageButton Source="envelope_blue_circle"
+                     Padding="20"
+                     Grid.Column="2"
+                     Clicked="Handle_EnvelopeClicked" />
+        <ImageButton Source="github_blue_circle"
+                     Padding="20"
+                     Grid.Column="1"
+                     Clicked="Handle_GithubClicked" />
+
+    </Grid>
+
+
+</Grid>

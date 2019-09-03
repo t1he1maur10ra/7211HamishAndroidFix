@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<CarouselPage BackgroundColor="blue"
+              xmlns="http://xamarin.com/schemas/2014/forms"
+              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:local="clr-namespace:HamishWadsworthCV.Extensions"
+              x:Class="HamishWadsworthCV.Views.ProjectsPage">
+
+    <ContentPage BackgroundColor="yellow">
+        <ContentPage.Padding>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="iOS, Android"
+                    Value="0,40,0,0" />
+            </OnPlatform>
+        </ContentPage.Padding>
+        <ContentPage.Content>
+            <StackLayout>
+                <Label Text="Red"
+                       FontSize="Medium"
+                       HorizontalOptions="Center" />
+                <BoxView Color="Red"
+                         WidthRequest="200"
+                         HeightRequest="200"
+                         HorizontalOptions="Center"
+                         VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+
+    <ContentPage BackgroundColor="green">
+        <ContentPage.Padding>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="iOS, Android"
+                    Value="0,40,0,0" />
+            </OnPlatform>
+        </ContentPage.Padding>
+        <ContentPage.Content>
+            <StackLayout>
+                <Label Text="Blue"
+                       FontSize="Medium"
+                       HorizontalOptions="Center" />
+                <BoxView Color="Blue"
+                         WidthRequest="200"
+                         HeightRequest="200"
+                         HorizontalOptions="Center"
+                         VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+</CarouselPage>
+
+
+
+
